@@ -1,0 +1,22 @@
+*{
+  padding:0px;
+  margin:0px;
+  font-family: 'Montserrat', sans-serif;
+  transition: 1s all;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: rgba(255,255,255,0.35);
+}
+::-webkit-scrollbar-corner {
+  background: #0c0c0c;
+}

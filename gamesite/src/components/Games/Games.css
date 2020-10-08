@@ -1,0 +1,9 @@
+.gamesection{
+    background:url(../../img/93839.jpg) center center no-repeat;
+    width:100%;
+    height:100vh;
+    overflow-y: scroll;
+    color:white;
+    overflow-x:hidden
+}
+

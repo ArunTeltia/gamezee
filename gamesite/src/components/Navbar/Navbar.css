@@ -1,0 +1,38 @@
+.navbar{
+    display:flex;
+    color:white;
+    height: 100px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.spacer{
+    flex:1;
+}
+.left_navbar{
+    margin-left:10%;
+}
+.left_navbar:hover{
+    transform: translateX(-10px);
+}
+.right_navbar{
+    margin-right:10%;
+}
+.getstarted_button{
+    padding:20px;
+    border-radius: 20px;
+    border:0px;
+    outline: none;
+    background-color:blue;
+    color:white;
+    font-weight:bold;
+    font-size:20px;
+}
+.getstarted_button:hover{
+    cursor: pointer;
+    transform: scale(0.98); 
+    box-shadow:2px 2px 2px 2px #000000;
+}
+.feels_like_spring{
+    margin-left:140px;
+}
