@@ -1,0 +1,16 @@
+
+.canvas{
+    background-color:white;
+    color:black;
+    
+}
+.canvas_props{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+label{
+    color:black;
+
+}

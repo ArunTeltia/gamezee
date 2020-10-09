@@ -6,6 +6,7 @@
     align-items: center;
     justify-content: center;
     position: static;
+
 }
 .spacer{
     flex:1;

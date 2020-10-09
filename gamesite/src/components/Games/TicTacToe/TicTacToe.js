@@ -3,6 +3,7 @@ import './TicTacToe.css';
 import CreateGame from './CreateGame';
 import JoinGame from './JoinGame';
 import Game from './game';
+import Navbar from '../../Navbar/Navbar';
 
 const TicTacToe = () => {
     const [showGame, setShowGame] = useState(false);
@@ -17,6 +18,7 @@ const TicTacToe = () => {
 
     return (
         <div className="container">
+            <Navbar message="Register" />
             <h1>Multiplayer X-O</h1>
             {!showGame && (
                 <>

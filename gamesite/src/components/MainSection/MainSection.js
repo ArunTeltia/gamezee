@@ -1,10 +1,12 @@
 import React from 'react'
+import Navbar from '../Navbar/Navbar'
 import './MainSection.css'
 
 const MainSection = () => {
     return (
+        
         <div className="mainsection">
-            
+            <Navbar message="Register" />
             <div className="gamesite_logo">
                 GAMEZONE
                 

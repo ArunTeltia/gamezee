@@ -12,7 +12,7 @@ function App() {
       <Router>
 
         <div className="gamesection">
-          <Navbar message="Register" />
+          {/* <Navbar message="Register" /> */}
           <Route exact path="/" component={HomePage} />
           <Route exact path="/gamelist" component={Games} />
           <Route exact path="/game/:id" component={Game} />
