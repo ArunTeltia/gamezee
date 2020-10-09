@@ -3,6 +3,7 @@
   margin:0px;
   font-family: 'Montserrat', sans-serif;
   transition: 1s all;
+  color:white;
 }
 ::-webkit-scrollbar {
   width: 6px;
