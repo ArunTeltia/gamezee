@@ -8,9 +8,7 @@ import GameList from './GameList/GameList';
 const Games = () => {
     return (
         <div className="gamesection">
-            <Navbar message="REGISTER" />
-            <TicTacToe />
-            {/* <GameList/> */}
+            <GameList/>
         </div>
     )
 }

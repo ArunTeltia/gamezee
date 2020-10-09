@@ -1,11 +1,10 @@
 import React from 'react'
-import Navbar from '../Navbar/Navbar';
 import './MainSection.css'
 
 const MainSection = () => {
     return (
         <div className="mainsection">
-            <Navbar message="GET STARTED"/>
+            
             <div className="gamesite_logo">
                 GAMEZONE
                 

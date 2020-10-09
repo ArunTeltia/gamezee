@@ -103,7 +103,6 @@ io.on('connection', socket => {
             updateGame(game);
             io.in(gameId).emit('gameUpdated', { game });
             io.in(gameId).emit('gameEnd', { winner });
-            // io.in(gameId).on('reset', { game=createGame(gameId, player.id, null) })
             return;
         }
 
@@ -114,7 +113,7 @@ io.on('connection', socket => {
             updateGame(game);
             io.in(gameId).emit('gameUpdated', { game });
             io.in(gameId).emit('gameEnd', { winner: null });
-            // io.in(gameId).on('reset', { game=createGame(gameId, player.id, null) })
+            
             return;
         }
     });

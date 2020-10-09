@@ -6,22 +6,22 @@ const games = [
     },
     {
         "game_id": 2,
-        "game_name": 'TicTacToe',
-        "game_image": "https://neave.com/assets/images/home/tic-tac-toe.png",
+        "game_name": 'Canvas',
+        "game_image": "https://s3.amazonaws.com/gallerist-live/products/29222/large/affection-1-1.jpg?1573629299",
     },
     {
         "game_id": 3,
-        "game_name": 'TicTacToe',
+        "game_name": 'Random',
         "game_image": "https://neave.com/assets/images/home/tic-tac-toe.png",
     },
     {
         "game_id": 4,
-        "game_name": 'TicTacToe',
+        "game_name": 'Hello',
         "game_image": "https://neave.com/assets/images/home/tic-tac-toe.png",
     },
     {
         "game_id": 4,
-        "game_name": 'TicTacToe',
+        "game_name": 'FOFF',
         "game_image": "https://neave.com/assets/images/home/tic-tac-toe.png",
     }
 ]

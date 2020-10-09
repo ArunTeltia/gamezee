@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { Redirect, Link } from 'react-router-dom';
 import GameData from './gamedata';
 import GameComponent from '../GameComponent/GameComponent';
 import './GameList.css'
@@ -12,13 +13,13 @@ const GameList = () => {
             <div className="card_list">
                 {GameData.map(game => {
                     return (
-
-                        <GameComponent game={game} />
-
+                        <Link to={`/game/${game.game_name}`} >
+                            <GameComponent game={game} />
+                        </Link>
                     )
                 })}
             </div>
-        </Fragment>
+        </Fragment >
     )
 }
 

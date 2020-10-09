@@ -56,7 +56,7 @@ const Game = ({ name, gameId }) => {
             gameId: game.id,
         });
     };
-    
+
 
     const getWinnerMessage = () => {
         return winner.player.id === player.id ? 'You Win' : 'You Loose';
@@ -91,9 +91,6 @@ const Game = ({ name, gameId }) => {
             {notification.map((msg, index) => (
                 <p key={index}>{msg}</p>
             ))}
-            <div className="getstarted_button" 
-            // onClick={() => ResetTheGame()}
-            >Reset</div>
         </div>
     );
 };
