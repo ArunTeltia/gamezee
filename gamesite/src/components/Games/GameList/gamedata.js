@@ -11,8 +11,8 @@ const games = [
     },
     {
         "game_id": 3,
-        "game_name": 'Random',
-        "game_image": "https://neave.com/assets/images/home/tic-tac-toe.png",
+        "game_name": 'Algorithm',
+        "game_image": "https://www.qrsolutions.com.au/images/side-by-side-bar-chart.PNG",
     },
     {
         "game_id": 4,

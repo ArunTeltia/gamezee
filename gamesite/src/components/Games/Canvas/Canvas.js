@@ -225,9 +225,6 @@ const Canvas = () => {
             id="canvas"
             width={window.innerWidth}
             height={window.innerHeight}
-            // onMouseDown={handleMouseDown}
-            // onMouseMove={handleMouseMove}
-            // onMouseUp={handleMouseUp}
             onMouseDown={startDrawing}
             onMouseUp={finishDrawing}
             onMouseMove={draw}
@@ -243,9 +240,6 @@ const Canvas = () => {
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
-            // onMouseDown={startDrawing}
-            // onMouseUp={finishDrawing}
-            // onMouseMove={draw}
             ref={canvasRef}
         >
             Canvas

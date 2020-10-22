@@ -1,3 +1,4 @@
+//card on gamelist
 import React, { Fragment } from 'react'
 import './GameComponent.css'
 
