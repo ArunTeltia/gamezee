@@ -37,10 +37,10 @@ const SortInput = () => {
   };
   const onRemoveClick = e => {
     e.preventDefault();
-    const addData = [...array, 0];
+    const addData = [...array.splice(1)];
 
-    const addLabelData = [...labelData, labelData.length];
-    const backgroundData = [...backgroundColorData, 'rgba(125, 6, 6, 0.6)'];
+    const addLabelData = [...labelData.splice(1)];
+    const backgroundData = [...backgroundColorData.splice(1)];
     setArray(addData);
     setlabelData(addLabelData);
     setBackgroundColorData(backgroundData);
@@ -109,6 +109,38 @@ const SortInput = () => {
         }
       }
     } else if (Sort === 'insertion') {
+		let len = array.length;
+        for (let i = 1; i < len; i++) {
+            // Choosing the first element in our unsorted subarray
+			let current = array[i];
+			let backgroundColor = backgroundColorData[i];
+            // The last element of our sorted subarray
+            let j = i-1; 
+            while ((j > -1) && (current < array[j])) {
+				setArray(array => {
+					let data = [...array];
+					data[j+1] = data[j];
+					return data;
+				});
+				setBackgroundColorData(backgroundColorData => {
+					let data = [...backgroundColorData];
+					data[j+1] = data[j];
+					return data;
+				});
+                j--;
+			}
+			setArray(array => {
+				let data = [...array];
+				data[j+1] = current;
+				return data;
+			});
+			setBackgroundColorData(backgroundColorData => {
+				let data = [...backgroundColorData];
+				data[j+1] = backgroundColor;
+				return data;
+			});
+			await sleep(800);
+        }
     } else if (Sort === 'merge') {
     } else if (Sort === 'heap') {
     }
