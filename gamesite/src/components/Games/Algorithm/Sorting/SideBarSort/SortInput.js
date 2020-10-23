@@ -49,39 +49,43 @@ const SortInput = () => {
         setlabelData(addLabelData);
         setBackgroundColorData(backgroundData);
         
-		}
-		const swap=(array, first_Index, second_Index)=>{
-			var temp = array[first_Index];
-			array[first_Index] = array[second_Index];
-			array[second_Index] = temp;
-		}
-		const onSubmitClick=(e)=>{
-				if(Sort==='bubble'){
-					console.log('bubble');
-					const len = array.length;
-        	let  i, j, stop;
-
-					for (i=0; i < len; i++){
-							for (j=0, stop=len-i; j < stop; j++){
-									if (array[j] > array[j+1]){
-											swap(array, j, j+1);
-									}
-							}
+	}
+	const sleep = (milliseconds) => {
+		return new Promise(resolve => setTimeout(resolve, milliseconds))
+	}
+	const onSubmitClick = async (e) => {
+		if (Sort === 'bubble') {
+		console.log('bubble');
+		const len = array.length;
+		let i, j, stop;
+		for (i = 0; i < len; i++) {
+			for (j = 0, stop = len - i; j < stop; j++) {
+				if (array[j] > array[j + 1]) {
+					setArray((array,j) => {
+						let data = [...array];
+						let temp = data[j];
+						data[j] = data[j+1];
+						data[j+1] = temp;
+						console.log(data);
+						return data ;
+					})
+					await sleep(1000)
+					console.log(array)
 					}
-					
-					
-				}else if(Sort==='selection'){
-					
-				}else if(Sort==='selection'){
-					
-				}else if(Sort==='insertion'){
-					
-				}else if(Sort==='merge'){
-					
-				}else if(Sort==='heap'){
-					
 				}
+			}
+		} else if (Sort === 'selection') {
+	
+		} else if (Sort === 'selection') {
+	
+		} else if (Sort === 'insertion') {
+	
+		} else if (Sort === 'merge') {
+	
+		} else if (Sort === 'heap') {
+	
 		}
+	}
     const chartData={
         labels: labelData,
         datasets:[
@@ -92,7 +96,6 @@ const SortInput = () => {
           }
         ]
       }
-    // const myChart = 
     return (
         <div className="side_bar_sort">
             <select id="sorttype" className="select-css" onChange={(e) => handleSelectChange(e)} value={Sort}>
