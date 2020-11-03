@@ -1,0 +1,36 @@
+*{
+  color:black;
+}
+.array-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.ArrayBars{
+  display: flex;
+  width:800px;
+  height:80vh;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  overflow: scroll;
+}
+.array-bar {
+  width: 5px;
+  display: inline-block;
+  margin: 0 1px;
+  border-radius: 1px;
+}
+button{
+  padding:20px;
+    border-radius: 20px;
+    border:0px;
+    outline: none;
+    background-color:blue;
+    color:white;
+    font-weight:bold;
+    font-size:20px;
+}

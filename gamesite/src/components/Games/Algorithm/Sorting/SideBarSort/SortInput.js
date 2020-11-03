@@ -58,18 +58,15 @@ const SortInput = () => {
   const onSubmitClick = async e => {
     setDisabled(true);
     if (Sort === 'bubble') {
-      console.log('bubble');
       const len = array.length;
-      let i, j, stop;
-      for (i = 0; i < len; i++) {
-        for (j = 0, stop = len - i; j < stop; j++) {
+      for (let i = 0; i < len; i++) {
+        for (let j = 0; j < len; j++) {
           if (array[j] > array[j + 1]) {
             setArray(array => {
               let data = [...array];
               let temp = data[j];
               data[j] = data[j + 1];
               data[j + 1] = temp;
-              console.log(data);
               return data;
             });
             setBackgroundColorData(backgroundColorData => {
@@ -77,11 +74,9 @@ const SortInput = () => {
               let temp = data[j];
               data[j] = data[j + 1];
               data[j + 1] = temp;
-              console.log(data);
               return data;
             });
             await sleep(1000);
-            console.log(array);
           }
         }
       }
@@ -102,7 +97,6 @@ const SortInput = () => {
             let temp = data[i];
             data[i] = data[min];
             data[min] = temp;
-            console.log(data);
             return data;
           });
 
@@ -111,7 +105,6 @@ const SortInput = () => {
             let temp = data[i];
             data[i] = data[min];
             data[min] = temp;
-            console.log(data);
             return data;
           });
           await sleep(1000);
@@ -137,6 +130,7 @@ const SortInput = () => {
             return data;
           });
           j--;
+          await sleep(500);
         }
         setArray(array => {
           let data = [...array];
@@ -148,7 +142,7 @@ const SortInput = () => {
           data[j + 1] = backgroundColor;
           return data;
         });
-        await sleep(800);
+        await sleep(500);
       }
     } else if (Sort === 'merge') {
     } else if (Sort === 'heap') {
@@ -171,8 +165,8 @@ const SortInput = () => {
         id="sorttype"
         className="select-css"
         onChange={e => handleSelectChange(e)}
-		value={Sort}
-		disabled={disabled}
+        value={Sort}
+        disabled={disabled}
       >
         <option value="bubble">Bubble Sort</option>
         <option value="selection">Selection Sort</option>
@@ -181,13 +175,17 @@ const SortInput = () => {
         <option value="heap">Heap Sort</option>
       </select>
       <div className="input_sort">
-        <button className="removeData" onClick={e => onRemoveClick(e)} disabled={disabled}>
+        <button
+          className="removeData"
+          onClick={e => onRemoveClick(e)}
+          disabled={disabled}
+        >
           Remove
         </button>
         {array.map((elem, index) => {
           return (
             <input
-			disabled={disabled}
+              disabled={disabled}
               key={'input' + index}
               className="input_pod"
               type="number"
@@ -197,7 +195,7 @@ const SortInput = () => {
           );
         })}
         <button
-		disabled={disabled}
+          disabled={disabled}
           className="addData"
           onClick={e => {
             onAddClick(e);

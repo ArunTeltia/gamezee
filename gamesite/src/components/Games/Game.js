@@ -5,7 +5,7 @@ import Canvas from './Canvas/Canvas';
 import Algorithm from './Algorithm/Algorithm';
 
 import './Game.css';
-import SideBarSort from './Algorithm/Sorting/SideBarSort/SortInput';
+import SortingVisualizer from './Algorithm/SortingVisualizer/SortingVisualizer';
 
 const Game = (props) => {
     let { id } = useParams();
@@ -24,7 +24,7 @@ const Game = (props) => {
         )
     } else if (id === "Sorting") {
         return (
-            <SideBarSort />
+            <SortingVisualizer />
         )
     } else {
         return (
