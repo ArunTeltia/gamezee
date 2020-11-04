@@ -1,8 +1,8 @@
 import React from 'react';
-import {getMergeSortAnimations,getBubbleSortAnimations,getInsertionSortAnimations} from '../sortingAlgorithms/sortingAlgorithms.js';
+import {getMergeSortAnimations,getBubbleSortAnimations,getInsertionSortAnimations,getSelectionSortAnimations} from '../sortingAlgorithms/sortingAlgorithms.js';
 import './SortingVisualizer.css';
 
-const ANIMATION_SPEED_MS = 3;
+const ANIMATION_SPEED_MS = 7;
 
 const NUMBER_OF_ARRAY_BARS = 140;
 
@@ -17,10 +17,12 @@ const helperSorter=(animations)=>{
         const [barOneIdx, newHeight] = animations[i];
         const barOneStyle = arrayBars[barOneIdx].style;
         barOneStyle.height = `${newHeight}px`;
-      }, i * ANIMATION_SPEED_MS)
-      this.setState(this.state.array.sort());
-      
+      }, i * ANIMATION_SPEED_MS) 
   }
+}
+function isSorted(arr) {
+  const limit = arr.length - 1;
+  return arr.every((_, i) => (i < limit ? arr[i] <= arr[i + 1] : true));
 }
 export default class SortingVisualizer extends React.Component {
   constructor(props) {
@@ -45,28 +47,7 @@ export default class SortingVisualizer extends React.Component {
 
   mergeSort() {
     const animations = getMergeSortAnimations(this.state.array);
-    console.log(animations);
-    for (let i = 0; i < animations.length; i++) {
-      const arrayBars = document.getElementsByClassName('array-bar');
-      const isColorChange = i % 3 !== 2;
-      console.log(isColorChange);
-      if (isColorChange) {
-        const [barOneIdx, barTwoIdx] = animations[i];
-        const barOneStyle = arrayBars[barOneIdx].style;
-        const barTwoStyle = arrayBars[barTwoIdx].style;
-        const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
-        setTimeout(() => {
-          barOneStyle.backgroundColor = color;
-          barTwoStyle.backgroundColor = color;
-        }, i * ANIMATION_SPEED_MS);
-      } else {
-        setTimeout(() => {
-          const [barOneIdx, newHeight] = animations[i];
-          const barOneStyle = arrayBars[barOneIdx].style;
-          barOneStyle.height = `${newHeight}px`;
-        }, i * ANIMATION_SPEED_MS);
-      }
-    }
+    helperSorter(animations);
   }
 
   quickSort() {
@@ -75,10 +56,15 @@ export default class SortingVisualizer extends React.Component {
   insertionSort(){
     const animations = getInsertionSortAnimations(this.state.array);
     helperSorter(animations);
+    // this.setState(this.state.array.sort());
   }
 
   bubbleSort() {
     const animations = getBubbleSortAnimations(this.state.array);
+    helperSorter(animations);
+  }
+  selectionSort(){
+    const animations = getSelectionSortAnimations(this.state.array);
     helperSorter(animations);
   }
   
@@ -99,11 +85,15 @@ export default class SortingVisualizer extends React.Component {
         ))}
         </div>
         <div className="buttons">
-        <button onClick={() => this.resetArray()}>New Array</button>
+        <button className="new_array" onClick={() => this.resetArray()}>New Array</button>
         <button onClick={() => this.mergeSort()}>Merge Sort</button>
         <button onClick={() => this.quickSort()}>Quick Sort</button>
-        <button onClick={() => this.insertionSort()}>Heap Sort</button>
+        <button onClick={() => this.insertionSort()}>Insertion Sort</button>
         <button onClick={() => this.bubbleSort()}>Bubble Sort</button>
+        <button onClick={() => this.selectionSort()}>Selection Sort</button>
+        </div>
+        <div>
+          PS:Selection Sort has lowest number of swaps
         </div>
       </div>
     );

@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  gap:10px;
 }
 .ArrayBars{
   display: flex;
@@ -17,6 +17,7 @@
   justify-content: center;
   background-color: black;
   overflow: scroll;
+
 }
 .array-bar {
   width: 5px;
@@ -33,4 +34,12 @@ button{
     color:white;
     font-weight:bold;
     font-size:20px;
+}
+button{
+  cursor: pointer;
+  transform: scale(0.98); 
+  box-shadow:2px 2px 2px 2px #000000;
+}
+.new_array{
+  background:linear-gradient(270.72deg, #180255 0.25%, #000000 97.54%);;
 }
