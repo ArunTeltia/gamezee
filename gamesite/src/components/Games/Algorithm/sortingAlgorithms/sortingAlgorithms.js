@@ -107,3 +107,42 @@ export function getSelectionSortAnimations(array) {
   }
   return animations;
 };
+export function getQuickSortAnimations(array) {
+  const animations = [];
+  if (array.length <= 1) return array;
+  const auxiliaryArray = array
+  const len = auxiliaryArray.length;
+  quickSort(auxiliaryArray,0,auxiliaryArray.length,animations);
+  console.log(animations);
+  animations.pop();
+  animations.pop();
+  return animations;
+}
+const quickSort = (arr, start, end,animations) => {
+  let pivotIndex = pivot(arr, start, end,animations);
+
+  if (start >= end) return arr;
+  quickSort(arr, start, pivotIndex,animations);
+  quickSort(arr, pivotIndex + 1, end,animations);
+
+};
+const pivot = (arr, start = 0, end = arr.length + 1,animations) => {
+  const swap = (list, a, b) => [list[a], list[b]] = [list[b], list[a]];
+
+  let pivot = arr[start],
+      pointer = start;
+
+  for (let i = start; i < arr.length; i++) {
+    if (arr[i] < pivot  ) {
+      pointer++;
+      animations.push([pointer,arr[i]]);
+      animations.push([i,arr[pointer]]);
+      swap(arr, pointer, i);
+    }
+  };
+  animations.push([start,arr[pointer]]);
+  animations.push([pointer,arr[start]]);
+  swap(arr, start, pointer);
+
+  return pointer;
+}

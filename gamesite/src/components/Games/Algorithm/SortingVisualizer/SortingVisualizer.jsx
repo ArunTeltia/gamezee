@@ -1,5 +1,5 @@
 import React from 'react';
-import {getMergeSortAnimations,getBubbleSortAnimations,getInsertionSortAnimations,getSelectionSortAnimations} from '../sortingAlgorithms/sortingAlgorithms.js';
+import {getMergeSortAnimations,getBubbleSortAnimations,getInsertionSortAnimations,getSelectionSortAnimations,getQuickSortAnimations} from '../sortingAlgorithms/sortingAlgorithms.js';
 import './SortingVisualizer.css';
 
 const ANIMATION_SPEED_MS = 7;
@@ -8,9 +8,8 @@ const NUMBER_OF_ARRAY_BARS = 140;
 
 const PRIMARY_COLOR = 'orange';
 
-const SECONDARY_COLOR = 'red';
-
 const helperSorter=(animations)=>{
+  try{
   for (let i = 0; i < animations.length; i++) {
     const arrayBars = document.getElementsByClassName('array-bar');
       setTimeout(() => {
@@ -18,6 +17,9 @@ const helperSorter=(animations)=>{
         const barOneStyle = arrayBars[barOneIdx].style;
         barOneStyle.height = `${newHeight}px`;
       }, i * ANIMATION_SPEED_MS) 
+  }
+  }catch(err){
+    console.log(err);
   }
 }
 function isSorted(arr) {
@@ -51,12 +53,13 @@ export default class SortingVisualizer extends React.Component {
   }
 
   quickSort() {
+    const animations = getQuickSortAnimations(this.state.array);
+    helperSorter(animations);
   }
 
   insertionSort(){
     const animations = getInsertionSortAnimations(this.state.array);
     helperSorter(animations);
-    // this.setState(this.state.array.sort());
   }
 
   bubbleSort() {
