@@ -21,7 +21,7 @@ const games = [
     },
     {
         "game_id": 4,
-        "game_name": 'FOFF',
+        "game_name": 'BreakDown',
         "game_image": "https://neave.com/assets/images/home/tic-tac-toe.png",
     }
 ]

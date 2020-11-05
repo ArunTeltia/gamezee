@@ -6,7 +6,7 @@ const algos = [
     },
     {
         "game_id": 2,
-        "game_name": 'Searching',
+        "game_name": 'GameOfLife',
         "game_image": "https://cdn1.knowledgeboat.com/img/ac10/ac10-array-binary-search-op1-600.jpg",
     },
     {
